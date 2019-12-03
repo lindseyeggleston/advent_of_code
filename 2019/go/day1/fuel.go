@@ -13,8 +13,15 @@ func raiseError(err error) {
 	}
 }
 
+func Max(x, y int) int {
+	if x < y {
+		return y
+	}
+	return x
+}
+
 func CalculateFuel(weight int) int {
-	return weight/3 - 2
+	return Max(weight/3-2, 0)
 }
 
 func CalculateModuleFuelRequirements(weightFile string) int {

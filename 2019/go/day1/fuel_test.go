@@ -12,6 +12,18 @@ func TestFuel(t *testing.T) {
 		}
 	}
 
+	t.Run("get max between 0 and 2", func(t *testing.T) {
+		got := Max(0, 2)
+		want := 2
+		assertCorrectNumber(t, got, want)
+	})
+
+	t.Run("get max between 0 and -2", func(t *testing.T) {
+		got := Max(0, -2)
+		want := 0
+		assertCorrectNumber(t, got, want)
+	})
+
 	t.Run("calculate fuel for mass of 12", func(t *testing.T) {
 		got := CalculateFuel(12)
 		want := 2
@@ -42,10 +54,10 @@ func TestFuel(t *testing.T) {
 		assertCorrectNumber(t, got, want)
 	})
 
-	t.Run("calculate total fuel for modules and fuel in test.txt", func(t *testing.T) {
-		got := CalculateTotalFuelRequirements(testFilePath)
-		want := 51316
-		assertCorrectNumber(t, got, want)
-	})
+	// t.Run("calculate total fuel for modules and fuel in test.txt", func(t *testing.T) {
+	// 	got := CalculateTotalFuelRequirements(testFilePath)
+	// 	want := 51316
+	// 	assertCorrectNumber(t, got, want)
+	// })
 
 }
